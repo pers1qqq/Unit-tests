@@ -1,5 +1,5 @@
 import unittest
-from geometric_lib import square
+import geometric_lib.square as square
 
 
 class SquareTestCase(unittest.TestCase):
