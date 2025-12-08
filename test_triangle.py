@@ -1,5 +1,5 @@
 import unittest
-from geometrical_lib import triangle
+from geometric_lib import triangle
 
 
 class TriangleTestCase(unittest.TestCase):
