@@ -1,5 +1,5 @@
 {
     "python.analysis.extraPaths": [
-        "${workspaceFolder}/geometric_lib"
+        "./geometric_lib"
     ]
 }
