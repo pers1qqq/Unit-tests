@@ -125,6 +125,105 @@ class CircleTestCase(unittest.TestCase):
 if __name__ == "__main__":
     unittest.main()
 ```
+---
+
+# Разбор файла `test_circle.py`
+
+Короткое, чёткое объяснение того, что делает каждая строка.
+
+---
+
+```python
+import os
+import sys
+import unittest
+import math
+```
+Импорт модулей: работа с путями, системный путь, unittest и математика.
+
+---
+
+```python
+CURRENT_DIR = os.path.dirname(__file__)
+```
+Путь к папке, где находится текущий тестовый файл.
+
+---
+
+```python
+PROJECT_ROOT = os.path.abspath(os.path.join(CURRENT_DIR, ".."))
+```
+Путь к корню проекта (на один уровень выше папки unittests).
+
+---
+
+```python
+if PROJECT_ROOT not in sys.path:
+    sys.path.insert(0, PROJECT_ROOT)
+```
+Добавляем корень проекта в пути поиска модулей, чтобы работал импорт `geometric_lib`.
+
+---
+
+```python
+import geometric_lib.circle as circle
+```
+Импортируем модуль circle.py.
+
+---
+
+```python
+class CircleTestCase(unittest.TestCase):
+```
+Создаём класс тестов (обязательное наследование от unittest.TestCase).
+
+---
+
+```python
+    def test_perimeter_zero_radius(self):
+```
+Тест 1: проверка периметра круга с радиусом 0.
+
+```python
+        res = circle.perimeter(0)
+        self.assertEqual(res, 0)
+```
+Ожидаем, что периметр равен 0.
+
+---
+
+```python
+    def test_perimeter_unit_radius(self):
+```
+Тест 2: периметр при радиусе 1.
+
+```python
+        res = circle.perimeter(1)
+        self.assertAlmostEqual(res, 2 * math.pi, places=7)
+```
+Проверяем, что значение совпадает с 2π с точностью до 7 знаков.
+
+---
+
+```python
+    def test_area_unit_radius(self):
+```
+Тест 3: площадь круга при радиусе 1.
+
+```python
+        res = circle.area(1)
+        self.assertAlmostEqual(res, math.pi, places=7)
+```
+Проверяем, что площадь равна π.
+
+---
+
+```python
+if __name__ == "__main__":
+    unittest.main()
+```
+Запуск тестов, если файл запускается напрямую.
+
 
 ---
 
